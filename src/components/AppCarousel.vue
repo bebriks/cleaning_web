@@ -1,43 +1,53 @@
 <script setup lang="ts">
+  import image13 from '@/images/image_13.jpg'
+  import image14 from '@/images/image_14.jpg'
+  import image15 from '@/images/image_15.jpg'
+  import image16 from '@/images/image_16.jpg'
+  import image17 from '@/images/image_17.jpg'
+  import image18 from '@/images/image_18.jpg'
+  import image19 from '@/images/image_19.jpg'
+  import image20 from '@/images/image_20.jpg'
+  import image21 from '@/images/image_21.jpg'
+  import image22 from '@/images/image_22.jpg'
   const workCategories = [
     {
       title: 'Уборка после ремонта',
       items: [
-        { src: 'src/images/image_13.jpg' },
-        { src: 'src/images/image_14.jpg' },
+        { src: image13 },
+        { src: image14 },
       ],
     },
     {
       title: 'Детский садик после ремонта',
       items: [
-        { src: 'src/images/image_15.jpg' },
-        { src: 'src/images/image_16.jpg' },
+        { src: image15 },
+        { src: image16 },
       ],
     },
     {
       title: 'Химчистка коврового покрытия',
       items: [
-        { src: 'src/images/image_19.jpg' },
-        { src: 'src/images/image_20.jpg' },
+        { src: image19 },
+        { src: image20 },
       ],
     },
     {
       title: 'Уборка после ремонта',
       items: [
-        { src: 'src/images/image_21.jpg' },
-        { src: 'src/images/image_22.jpg' },
+        { src: image21 },
+        { src: image22 },
       ],
     },
     {
       title: 'Коттедж после ремонта',
       items: [
-        { src: 'src/images/image_18.jpg' },
+        { src: image18 },
       ],
     },
     {
       title: 'Химчистка дивана',
       items: [
-        { src: 'src/images/image_17.jpg' },
+        { src: image17 },
       ],
     },
   ]
