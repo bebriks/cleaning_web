@@ -4,7 +4,21 @@
  * Configures SASS variables and Vuetify overwrites
  */
 
-// https://vuetifyjs.com/features/sass-variables/`
-// @use 'vuetify/settings' with (
-//   $color-pack: false
-// );
+@forward 'vuetify/settings' with (
+  $body-font-family: ('Roboto', sans-serif),
+  $heading-font-family: ('Roboto', sans-serif),
+  $application_background: linear-gradient(180deg, #F0F0F0 0%, #E0E0E0 100%),
+  $app_bar_background: (rgba(106, 186, 162, 1)),
+  $card_background: (rgba(174, 219, 205, 1)),
+  $footer_background: rgba(106, 186, 162, 1),
+);
+
+.link {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color:rgb(27, 75, 51);
+    transition: all 0.3s ease-in-out;
+  }
+}

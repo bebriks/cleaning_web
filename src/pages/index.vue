@@ -1,5 +1,7 @@
 <template>
-  <HelloWorld />
+  <AppMainImage />
+  <AppAdvantageItem />
+  <AppCarousel />
 </template>
 
 <script lang="ts" setup>
