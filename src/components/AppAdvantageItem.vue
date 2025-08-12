@@ -1,15 +1,31 @@
 <script setup lang="ts">
+  import type { DefineComponent } from 'vue'
   import Medal from './icons/Medal.vue'
   import Money from './icons/Money.vue'
   import Shield from './icons/Shield.vue'
 
-  const iconMap = {
-    Money,
-    Shield,
-    Medal,
+  type VueComponent = DefineComponent<{}, {}, any, {}, {}, any, any, any>
+
+  type IconMap = Record<string, VueComponent> & {
+    Money: VueComponent
+    Shield: VueComponent
+    Medal: VueComponent
   }
 
-  const items = [
+  const iconMap: IconMap = {
+    Money: Money as VueComponent,
+    Shield: Shield as VueComponent,
+    Medal: Medal as VueComponent,
+  }
+
+  interface AdvantageItem {
+    title: string
+    icon: keyof typeof iconMap
+    cardText: string
+    elements: string[]
+  }
+
+  const items: AdvantageItem[] = [
     {
       title: 'Без доплат и переплат',
       icon: 'Money',
