@@ -40,6 +40,7 @@
     </ul>
 
     <v-navigation-drawer
+      ref="app-bar"
       v-model="drawer"
       fixed
       right
@@ -47,6 +48,10 @@
       width="250"
     >
       <v-list>
+        <v-list-item class="arrow-left" @click="drawer = false">
+          <v-icon icon="mdi-arrow-left" />
+        </v-list-item>
+
         <v-list-item @click="() => scrollToSection('main')">
           <v-list-item-title>ГЛАВНАЯ</v-list-item-title>
         </v-list-item>
@@ -69,7 +74,9 @@
 
 <style lang="scss" scoped>
 @use '../styles/settings';
-
+.arrow-left {
+  justify-self: end;
+}
 .header {
   position: fixed;
   top: 0;
