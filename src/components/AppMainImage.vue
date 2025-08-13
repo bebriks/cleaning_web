@@ -15,7 +15,7 @@
 <style lang="scss" scoped>
 .main-hero {
   position: relative;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   background:
     linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
@@ -50,6 +50,9 @@
   }
   .hero-content {
     max-width: 100%;
+  }
+  .hero-title {
+    font-size: 40px;
   }
 }
 </style>

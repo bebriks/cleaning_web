@@ -50,10 +50,9 @@
   text-align: center
 
 .footer-title
-  font-weight: 500
-  font-size: 28px
+  font-weight: 300
+  font-size: 36px
   margin-bottom: 30px
-  color: white
 
 .contacts-container
   display: flex
@@ -78,8 +77,7 @@
 .phone-text
   text-align: left
   font-size: 18px
-  font-weight: 500
-  color: white
+  font-weight: 400
 
 .whatsapp-link
   display: flex

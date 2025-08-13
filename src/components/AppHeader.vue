@@ -1,3 +1,4 @@
+<!-- eslint-disable unicorn/prefer-query-selector -->
 <script setup lang="ts">
   import { onMounted, ref } from 'vue'
   import { useDisplay } from 'vuetify'
@@ -5,6 +6,16 @@
   const { mobile } = useDisplay()
   const isScrolled = ref(false)
   const drawer = ref(false)
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+      })
+    }
+    drawer.value = false
+  }
 
   onMounted(() => {
     window.addEventListener('scroll', () => {
@@ -22,9 +33,9 @@
     />
 
     <ul v-if="!mobile" class="header-list">
-      <li><a href="#main">ГЛАВНАЯ</a></li>
-      <li><a href="#services">УСЛУГИ</a></li>
-      <li><a href="#works">НАШИ РАБОТЫ</a></li>
+      <li><a @click.prevent="() => scrollToSection('main')">ГЛАВНАЯ</a></li>
+      <li><a @click.prevent="() => scrollToSection('services')">УСЛУГИ</a></li>
+      <li><a @click.prevent="() => scrollToSection('works')">НАШИ РАБОТЫ</a></li>
       <li><a href="tel:+79221977132">+7 922 197-71-32</a></li>
     </ul>
 
@@ -36,15 +47,15 @@
       width="250"
     >
       <v-list>
-        <v-list-item href="#main" @click="drawer = false">
+        <v-list-item @click="() => scrollToSection('main')">
           <v-list-item-title>ГЛАВНАЯ</v-list-item-title>
         </v-list-item>
 
-        <v-list-item href="#services" @click="drawer = false">
+        <v-list-item @click="() => scrollToSection('services')">
           <v-list-item-title>УСЛУГИ</v-list-item-title>
         </v-list-item>
 
-        <v-list-item href="#works" @click="drawer = false">
+        <v-list-item @click="() => scrollToSection('works')">
           <v-list-item-title>НАШИ РАБОТЫ</v-list-item-title>
         </v-list-item>
 
