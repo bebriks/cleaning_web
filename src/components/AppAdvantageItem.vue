@@ -48,7 +48,8 @@
 </script>
 
 <template>
-  <v-container>
+  <v-container id="services">
+    <h2 class="section-title" data-aos="fade-up">Услуги</h2>
     <v-row class="advantage-columns" justify="space-around">
       <v-col
         v-for="(item, index) in items"
@@ -96,7 +97,7 @@
   margin-top: 10px
 
 .advantage-columns
-  margin: 100px auto
+  margin-bottom: 100px
 
 .advantage-column
   display: flex
@@ -117,6 +118,23 @@
   height: 137px
   &:hover
     transform: translateY(-5px)
+.section-title
+  text-align: center
+  font-size: 2.5rem
+  margin-bottom: 60px
+  color: rgba(106, 186, 162, 1)
+  position: relative
+  padding-top: 80px
+  &::after
+    content: ''
+    position: absolute
+    bottom: -15px
+    left: 50%
+    transform: translateX(-50%)
+    width: 80px
+    height: 4px
+    background: rgba(106, 186, 162, 1)
+    border-radius: 2px
 
 .advantage-card
   width: 100%
