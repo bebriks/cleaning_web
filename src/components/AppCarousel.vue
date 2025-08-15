@@ -9,6 +9,7 @@
   import image20 from '@/images/image_20.jpg'
   import image21 from '@/images/image_21.jpg'
   import image22 from '@/images/image_22.jpg'
+
   const workCategories = [
     {
       title: 'Уборка после ремонта',
@@ -54,39 +55,49 @@
 </script>
 
 <template>
-  <section id="works" class="works-section">
+  <section id="works" class="works-section" itemscope itemtype="https://schema.org/ImageGallery">
     <v-container>
-      <h2 class="section-title" data-aos="fade-up">Наши работы</h2>
+      <h1 class="section-title" data-aos="fade-up" itemprop="headline">Наши работы</h1>
 
       <div class="work-categories">
-        <div
+        <article
           v-for="(category, index) in workCategories"
           :key="index"
           class="work-category"
           :class="{ 'reverse': index % 2 !== 0 }"
+          itemprop="hasPart"
+          itemscope
+          itemtype="https://schema.org/ImageObject"
         >
-          <h3 class="category-title" data-aos="fade-right">{{ category.title }}</h3>
+          <h2 class="category-title" data-aos="fade-right" itemprop="name">
+            {{ category.title }}
+          </h2>
 
           <div class="carousel-container" data-aos="fade-up">
             <v-carousel
               class="work-carousel"
               height="400"
               hide-delimiters
-              :show-arrows="category.items.length > 1 ? true : false"
+              :show-arrows="category.items.length > 1"
             >
               <v-carousel-item
                 v-for="(item, i) in category.items"
                 :key="i"
-                :src="item.src"
               >
                 <div class="carousel-image-container">
-                  <img alt="Work example" class="carousel-image" :src="item.src">
+                  <img
+                    :alt="item.src"
+                    class="carousel-image"
+                    itemprop="contentUrl"
+                    loading="lazy"
+                    :src="item.src"
+                  >
                 </div>
                 <div class="carousel-overlay" />
               </v-carousel-item>
             </v-carousel>
           </div>
-        </div>
+        </article>
       </div>
     </v-container>
   </section>
