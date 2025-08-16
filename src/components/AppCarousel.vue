@@ -123,7 +123,6 @@
 <style scoped lang="sass">
 @use '../styles/settings';
 .works-section
-  padding: 80px 0
   background-color: #FFFFFF
 
 .section-title
@@ -132,6 +131,7 @@
   margin-bottom: 60px
   color: rgba(106, 186, 162, 1)
   position: relative
+  padding-top: 80px
 
   &::after
     content: ''
