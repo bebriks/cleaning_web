@@ -106,6 +106,10 @@
   max-width: 300px
   width: 100%
   gap: 20px
+  color: #000000 !important
+  -webkit-text-fill-color: rgba(0, 0, 0, 1)
+  -webkit-opacity: 1
+  color: rgba(0, 0, 0, 1)
 
 .advantage-item
   display: flex
