@@ -1,4 +1,7 @@
 <script setup lang="ts">
+  import { onMounted, ref } from 'vue'
+  import { useDisplay } from 'vuetify'
+
   import image13 from '@/images/image_13.jpg'
   import image14 from '@/images/image_14.jpg'
   import image15 from '@/images/image_15.jpg'
@@ -9,6 +12,16 @@
   import image20 from '@/images/image_20.jpg'
   import image21 from '@/images/image_21.jpg'
   import image22 from '@/images/image_22.jpg'
+
+  const { mobile } = useDisplay()
+  const isScrolled = ref(false)
+  const drawer = ref(false)
+
+  onMounted(() => {
+    window.addEventListener('scroll', () => {
+      isScrolled.value = window.scrollY > 50
+    })
+  })
 
   const workCategories = [
     {
@@ -74,17 +87,21 @@
           </h2>
 
           <div class="carousel-container" data-aos="fade-up">
-            <v-carousel
-              class="work-carousel"
-              height="400"
-              hide-delimiters
-              :show-arrows="category.items.length > 1"
-            >
-              <v-carousel-item
-                v-for="(item, i) in category.items"
-                :key="i"
+            <v-defaults-provider :defaults="{ VBtn: { variant: 'plain', } }">
+              <v-carousel
+                class="work-carousel"
+                height="400"
+                hide-delimiters
+                :show-arrows="category.items.length > 1"
               >
-                <div class="carousel-image-container">
+                <v-carousel-item
+                  v-for="(item, i) in category.items"
+                  :key="i"
+                >
+                  <div
+                    class="carousel-blur-bg"
+                    :style="{ 'background-image': 'url(' + item.src + ')' }"
+                  />
                   <img
                     :alt="item.src"
                     class="carousel-image"
@@ -92,10 +109,10 @@
                     loading="lazy"
                     :src="item.src"
                   >
-                </div>
-                <div class="carousel-overlay" />
-              </v-carousel-item>
-            </v-carousel>
+                  <div class="carousel-overlay" />
+                </v-carousel-item>
+              </v-carousel>
+            </v-defaults-provider>
           </div>
         </article>
       </div>
@@ -162,11 +179,24 @@
   width: 100%
   height: 100%
   position: relative
-
-.carousel-image
+.carousel-blur-bg
+  position: absolute
+  top: 0
+  left: 0
   width: 100%
   height: 100%
-  object-fit: fill
+  background-size: cover
+  background-position: center
+  filter: blur(8px)
+  transform: scale(1.1) // Убирает прозрачные края после blur
+  z-index: 1
+.carousel-image
+  position: relative
+  z-index: 2
+  width: 100%
+  height: 100%
+  object-fit: contain // или cover, в зависимости от нужного эффекта
+  margin: 0 auto
   display: block
 
 .work-carousel
@@ -183,6 +213,7 @@
   right: 0
   height: 40%
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.5))
+  z-index: 3
 
 @media (max-width: 960px)
   .works-section
