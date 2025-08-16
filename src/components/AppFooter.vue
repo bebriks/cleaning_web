@@ -12,7 +12,7 @@
           <div class="phone-block">
             <p class="phone-text">+7 922 197-71-32</p>
             <PhoneIcon class="phone-icon" />
-            <a class="whatsapp-link" href="#">
+            <a class="whatsapp-link" href="whatsapp://send?phone=+79221977132">
               <v-icon>mdi-whatsapp</v-icon>
               Есть WhatsApp
             </a>
