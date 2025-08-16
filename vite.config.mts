@@ -14,6 +14,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/cleaning_web/',
   plugins: [
     VueRouter({
       dts: 'src/typed-router.d.ts',
